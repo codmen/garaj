@@ -1,5 +1,365 @@
-<section class="3d_builder">
-	<div class="container">
-		<h1>This is 3D builder</h1>
-	</div>
+<section class="builder_3d" id="builder">
+    <div class="main_form">
+        <form method="get" action="ajax.php" id="main_form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-6 canvas_builders">
+                                        <div class="calc_wrap">
+                                            <div id="picture_map">
+                                                <canvas height="600" width="800" id="doors">
+                                                    <p>Ваш браузер не поддерживает рисование.</p>
+                                                </canvas>
+                                                <canvas height="600" width="800" id="element">
+                                                    <p>Ваш браузер не поддерживает рисование.</p>
+                                                </canvas>
+                                                <canvas height="600" width="800" id="roof">
+                                                    <p>Ваш браузер не поддерживает рисование.</p>
+                                                </canvas>
+                                                <canvas height="600" width="800" id="walls">
+                                                    <p>Ваш браузер не поддерживает рисование.</p>
+                                                </canvas>
+                                                <img src="assets/img/1car_2skat.png" id="garazh_picture">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-lg-6 form_data hidden-xs">
+                                        <div class="row text-center">
+                                            <div class="col fotm_title">
+                                                <h2>рассчитать стоимость</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ШИРИНА, м </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="a" name="a" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ДЛИННА, м </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="b" name="b" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ВЫСОТА ДО КРЫШИ, м </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="c" name="c" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ВЫСОТА ДО КОНЬКА, м</div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="d" name="d" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center text_quot">
+                                            <div class="col mb-3">
+                                                <h4>бесплатно сделаем точный замер и предложим <br>лучший вариант постройки гаража</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                       
+<div class="form-group">
+    <label class="label_form text-uppercase text-right">ТЕЛЕФОН</label>
+    <input type="text" name="phone" class="form-control" placeholder="+0 (000) 000-00-00" required>
+    </div>
+                                            </div>
+                                            <div class="col">
+                                               <div class="form-group">
+    <label class="label_form text-uppercase text-right">имя</label>
+   <input type="text" name="Name" class="form-control" required>
+    </div> 
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row text-center">
+                                            <div class="col btn_form">
+                                                <input type="hidden" id="skat" name="skat" value="2">
+                                                <input type="hidden" value="Рассчитать" name="submit">
+                                                <input type="submit" value="Рассчитать" name="submit" class="btn">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="errors"></p>
+                                                <p class="success"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row active_on_mobile">
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Кол-во ворот</div>
+                                                        <label>
+                                                            <input type="radio" name="quant" value="1" checked="checked" class="first"> 1</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="quant" value="2"> 2</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Форма крыши</div>
+                                                        <label>
+                                                            <input type="radio" name="roof_type" value="2" checked="checked" class="first"> Двускат</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="roof_type" value="back" id="back_skat"> Скат назад</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="roof_type" value="side" id="side_skat"> Скат набок</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden-sm hidden-xs">
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Толщина сэндвич панели</div>
+                                                        <label>
+                                                            <input type="radio" name="width" value="40 мм" checked="checked" class="first"> 40 мм</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="width" value="80 мм"> 80 мм</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="width" value="профлист"> Профлист</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 ">
+                                                    <div class="block">
+                                                        <div class="block_head">Ворота</div>
+                                                        <label>
+                                                            <input type="radio" name="door" value="Ролетные" checked="checked" class="first"> Ролетные</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="door" value="Секционные"> Секционные</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="door" value="Распашные"> Распашные</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row hidden-sm hidden-xs">
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Наполнитель</div>
+                                                        <label>
+                                                            <input type="radio" name="content" value="Вата" checked="checked" class="first"> Мин. вата базальт.</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="content" value="Пенополистирол"> Пенополистирол</label>
+                                                        <br>
+                                                        <label>
+                                                            <input type="radio" name="content" value="Профлист"> Профлист</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Фундамент</div>
+                                                        <label>
+                                                            <input type="checkbox" name="base" value="Плита" checked="checked" class="first"> Плита</label>
+                                                        <br>
+                                                        <div class="block_head">Монтаж</div>
+                                                        <label>
+                                                            <input type="checkbox" name="mount" value="Нужен монтаж" checked="checked"> Нужен монтаж</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Цвет стен</div>
+                                                        <div data-name="walls" class="main_colors" data-ral="1014" data-color="#E1CC4F"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="1015" data-color="#E6D690"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="1018" data-color="#F8F32B"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="3003" data-color="#9B111E"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="3005" data-color="#5E2129"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="3009" data-color="#642424"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="3011" data-color="#781F19"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="5005" data-color="#1E2460"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="6002" data-color="#2D572C"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="6005" data-color="#2F4538"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="7004" data-color="#969992"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="8017" data-color="#45322E"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="9002" data-color="#E7EBDA"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="9003" data-color="#F4F4F4"></div>
+                                                        <div data-name="walls" class="main_colors" data-ral="9006" data-color="#A5A5A5"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Цвет дверей</div>
+                                                        <div data-name="doors" class="main_colors" data-ral="1014" data-color="#E1CC4F"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="1015" data-color="#E6D690"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="1018" data-color="#F8F32B"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="3003" data-color="#9B111E"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="3005" data-color="#5E2129"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="3009" data-color="#642424"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="3011" data-color="#781F19"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="5005" data-color="#1E2460"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="6002" data-color="#2D572C"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="6005" data-color="#2F4538"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="7004" data-color="#969992"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="8017" data-color="#45322E"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="9002" data-color="#E7EBDA"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="9003" data-color="#F4F4F4"></div>
+                                                        <div data-name="doors" class="main_colors" data-ral="9006" data-color="#A5A5A5"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Цвет кровли</div>
+                                                        <div data-name="roof" class="main_colors" data-ral="1014" data-color="#E1CC4F"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="1015" data-color="#E6D690"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="1018" data-color="#F8F32B"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="3003" data-color="#9B111E"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="3005" data-color="#5E2129"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="3009" data-color="#642424"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="3011" data-color="#781F19"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="5005" data-color="#1E2460"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="6002" data-color="#2D572C"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="6005" data-color="#2F4538"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="7004" data-color="#969992"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="8017" data-color="#45322E"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="9002" data-color="#E7EBDA"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="9003" data-color="#F4F4F4"></div>
+                                                        <div data-name="roof" class="main_colors" data-ral="9006" data-color="#A5A5A5"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="block">
+                                                        <div class="block_head">Цвет элементов</div>
+                                                        <div data-name="element" class="main_colors" data-ral="1014" data-color="#E1CC4F"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="1015" data-color="#E6D690"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="1018" data-color="#F8F32B"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="3003" data-color="#9B111E"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="3005" data-color="#5E2129"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="3009" data-color="#642424"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="3011" data-color="#781F19"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="5005" data-color="#1E2460"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="6002" data-color="#2D572C"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="6005" data-color="#2F4538"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="7004" data-color="#969992"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="8017" data-color="#45322E"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="9002" data-color="#E7EBDA"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="9003" data-color="#F4F4F4"></div>
+                                                        <div data-name="element" class="main_colors" data-ral="9006" data-color="#A5A5A5"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 form_data visible-xs hidden-lg hidden-md">
+                                        <div class="row text-center">
+                                            <div class="col fotm_title">
+                                                <h2>рассчитать стоимость</h2>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ШИРИНА, м </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="a" name="a" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ДЛИННА, м </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="b" name="b" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ВЫСОТА ДО КРЫШИ, м </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="c" name="c" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col mb-3">
+                                                <div class="label_form text-uppercase text-right"> ВЫСОТА ДО КОНЬКА, м</div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <input type="text" id="d" name="d" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="row text-center text_quot">
+                                            <div class="col mb-3">
+                                                <h4>бесплатно сделаем точный замер и предложим <br>лучший вариант постройки гаража</h4>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                       
+<div class="form-group">
+    <label class="label_form text-uppercase text-right">ТЕЛЕФОН</label>
+    <input type="text" name="phone" class="form-control" placeholder="+0 (000) 000-00-00" required>
+    </div>
+                                            </div>
+                                            <div class="col">
+                                               <div class="form-group">
+    <label class="label_form text-uppercase text-right">имя</label>
+   <input type="text" name="Name" class="form-control" required>
+    </div> 
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row text-center">
+                                            <div class="col btn_form">
+                                                <input type="hidden" id="skat" name="skat" value="2">
+                                                <input type="hidden" value="Рассчитать" name="submit">
+                                                <input type="submit" value="Рассчитать" name="submit" class="btn">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="errors"></p>
+                                                <p class="success"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    //= builder_option.html
+                </div>
+
+                 
+
+                <div id="preloader">
+                    <img src="assets/img/1car_2skat.png" width="1" height="1" />
+                    <img src="assets/img/1car_back_skat.png" width="1" height="1" />
+                    <img src="assets/img/1car_side_scat.png" width="1" height="1" />
+                    <img src="assets/img/2car_2skat.png" width="1" height="1" />
+                    <img src="assets/img/2car_back_skat.png" width="1" height="1" />
+                </div>
+        </form>
+        </div>
 </section>

@@ -1,0 +1,386 @@
+.bottom_form_block.w25.allColors {
+    display: none;
+}
+.calc_wrap {
+	margin: 0 auto;
+	max-width: 1150px;
+}
+#picture_map {
+	height: 360px;
+    position: relative;
+    width: 550px;
+    /*width: 755px;*/
+    overflow: hidden;
+    float: left;
+}
+#result{
+	height: 40px;
+	margin-left:10px; 
+	border: 1px solid red;
+	text-align: center;
+	color: red;
+	width:100%;
+}
+#garazh_picture,
+canvas {
+	    position: absolute;
+    z-index: 100;
+    top: -35px;
+    left: 0;
+	width: 100%;
+}
+canvas {
+	z-index: 10;
+}
+.block {
+	float: left;
+	margin: 0 30px;
+	padding: 5px;
+}
+.side_form_block {
+	float: left;
+	margin-top: 50px;
+	line-height: 40px;
+}
+.side_form_block input {
+  font-family: "Squares";
+  font-size: 80%;
+	line-height:25px;
+	margin-left:10px; 
+	text-align: center;
+	color: #000;
+	font-weight: bold;
+	width:100%;
+}
+div.clear {
+	clear: both;
+}
+div#preloader {
+	position: absolute;
+	left: -9999px;
+	top:  -9999px;
+}
+div#preloader img {
+	display: block;
+}
+p.errors {
+	color: red;
+}
+p.success {
+	color: green;
+}
+.adaptive_block_head {
+	display: none;
+}
+/* ===============================================================
+Basic Swiper Styles 
+================================================================*/
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	/* Fix of Webkit flickering */
+	z-index:1;
+}
+.swiper-wrapper {
+	position:relative;
+	width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+	
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+	
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+	
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+	
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease;
+}
+.swiper-free-mode > .swiper-wrapper {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	margin: 0 auto;
+}
+.swiper-slide {
+	float: left;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+	-ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+	-ms-touch-action: pan-x;
+}
+
+/* ===============================================================
+Your custom styles, here you need to specify container's and slide's
+sizes, pagination, etc.
+================================================================*/
+.swiper-container {
+	/* Specify Swiper's Size: */
+
+	/*width:200px;
+	height: 100px;*/
+}
+.swiper-slide {
+	/* Specify Slides's Size: */
+	
+	/* width: 100%;
+	height: 100%;*/
+}
+.swiper-slide-active {
+	/* Specific active slide styling: */
+	
+}
+.swiper-slide-visible {
+	/* Specific visible slide styling: */	
+
+}
+/* ===============================================================
+Pagination Styles
+================================================================*/
+.swiper-pagination-switch {
+	/* Stylize pagination button: */	
+
+}
+.swiper-active-switch {
+	/* Specific active button style: */	
+	
+}
+.swiper-visible-switch {
+	/* Specific visible button style: */	
+	
+}
+
+div.colors {
+	line-height: 40px;
+}
+
+select{
+	width: 100px;
+	text-align: center;
+	font-weight: bold;
+}
+
+div.colors option {
+	width: 100px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.swiper-scrollbar {
+	border-radius: 5px;
+	height: 25px;
+	position: relative;
+	-ms-touch-action: none;
+	background: rgba(0,0,0,0.1);
+	margin-top: 5px;
+}
+.swiper-scrollbar-drag {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	background: #FFD305;
+	border-radius: 5px;
+}
+.swiper-scrollbar-cursor-drag {
+	cursor: move;
+}
+
+.color-swiper-container {
+  position: relative;
+  margin-bottom: 16px;
+  padding: 0 24px;
+  width: 288px;
+}
+
+.color-swiper-wrapper {
+  height: 24px; }
+
+.color-swiper-slide {
+  position: relative;
+  float: left;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.1) inset, -1px 0 0 rgba(0, 0, 0, 0.05) inset; }
+  .color-swiper-slide.active {
+    cursor: default;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35) inset, -2px -2px 0 rgba(255, 255, 255, 0.35) inset; }
+
+.color-swiper-left,
+.color-swiper-right {
+  line-height: 24px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  text-align: center; }
+
+.color-swiper-left {
+  float: left;
+  margin-left: -24px; }
+
+.color-swiper-right {
+  float: right;
+  margin-right: -24px; }
+
+.main_colors {
+    border-radius: 3px;
+    display: inline-block;
+    height: 16px;
+    width: 32px;
+}
+.main_colors.selected {
+	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.55);
+}
+.w25_main .block {
+	width: 25%;
+	margin: 0;
+	box-sizing: border-box;
+}
+.w25 .block {
+	width: 25%;
+	margin: 0;
+	box-sizing: border-box;
+}
+.colors_padding .block {
+	padding: 10px 26px;
+}
+
+.block_head {
+	font-weight: bold;
+	margin: 3px;	
+	text-transform: uppercase;
+}
+.colors select {
+	margin: 0 0 5px 23px;
+}
+#showAllColors {
+	text-align: center;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+@media only screen and (max-width: 1100px) {
+
+#picture_map {
+    height: 300px;
+    margin-top: 60px;
+    width: 400px;
+}
+.side_form_block {
+	font-size: 80%;
+}
+.calc_wrap {
+	margin: 0 auto;
+	max-width: 900px;
+}
+}
+
+@media only screen and (max-width: 799px) {
+
+#picture_map {
+       min-height: 345px;
+    margin-top: -25px;
+    width: 100%;
+}
+#garazh_picture,
+canvas {
+	position: absolute;
+	z-index: 100;
+	top: 0px;
+	left: 0px;
+}
+.w25 .block {
+	width: 50%;
+}
+.form_data {
+
+    padding: 20px;
+}
+.block {
+    margin: 5px 0 5px 24px;
+    width: 100%;
+}
+.color-swiper-container {
+    margin: 0 auto 16px;
+}
+.colors select {
+    margin: 0 0 5px 53px;
+}
+}
+
+@media only screen and (max-width: 640px) {
+
+#picture_map {
+        min-height: 345px;
+    margin-top: -25px;
+    width: 100%;
+}
+form {
+    margin: 0;
+    width: 100%;
+}
+.block {margin: 5px 0 5px 19px;}
+
+
+.w25 .block {
+    width: 100%;
+}
+.colors select {
+    display: block;
+    font-size: 30px;
+    height: 70px;
+    margin: 20px auto;
+    width: 300px;
+}
+.swiper-scrollbar {
+    height: 85px;
+}
+.color-swiper-container {
+    width: 588px;
+}
+.color-swiper-wrapper {
+    height: 44px;
+}
+
+.main_colors {
+    height: 44px;
+    width: 44px;
+}
+.adaptive_block_head {
+	display: block;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: center;
+}
+}
+
+section.builder_3d {
+    margin: 2rem 0;
+    overflow: hidden;
+}

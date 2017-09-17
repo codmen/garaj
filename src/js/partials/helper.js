@@ -77,3 +77,90 @@ $(document).ready(function() {
         sync1.data('owl.carousel').to(number, 300, true);
     });
 });
+
+
+// Builder 3D
+//создаем объект гараж
+var garage = new GarageCalc();
+//соберем значения из формы, подставим в формулу расчета цены
+function calc() {
+    var price = garage.calculate($('#a').val(), $('#b').val(), $('#c').val(), $('#d').val(), $('#skat').val(), $('input[name="quant"]:checked').val(), $('input[name="door"]:checked').val(), $('input[name="content"]:checked').val(), $('input[name="width"]:checked').val());
+    $('#result').html(price);
+}
+$(document).ready(function() {
+    $('#a, #b, #c, #d').keyup(function() {
+        calc();
+    });
+    $('input[name="roof_type"], input[name="quant"], input[name="door"], input[name="content"], input[name="width"]').change(function() {
+        calc();
+    });
+});
+
+$(document).ready(function() {
+
+    $("#form_modal").submit(function() {
+        $.ajax({
+            type: "POST",
+            url: "mail.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            alert("Спасибо за заявку! Скоро мы с вами свяжемся.");
+            $("#form_modal").trigger("reset");
+        });
+        return false;
+    });
+
+});
+
+
+
+
+
+// Cache selectors
+var lastId,
+    topMenu = $(".navbar"),
+    topMenuHeight = topMenu.outerHeight()+15,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function(){
+      var item = $($(this).attr("href"));
+      if (item.length) { return item; }
+    });
+
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e){
+  var href = $(this).attr("href"),
+      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+  $('html, body').stop().animate({ 
+      scrollTop: offsetTop
+  }, 300);
+  e.preventDefault();
+});
+
+// Bind to scroll
+$(window).scroll(function(){
+   // Get container scroll position
+   var fromTop = $(this).scrollTop()+topMenuHeight;
+   
+   // Get id of current scroll item
+   var cur = scrollItems.map(function(){
+     if ($(this).offset().top < fromTop)
+       return this;
+   });
+   // Get the id of the current element
+   cur = cur[cur.length-1];
+   var id = cur && cur.length ? cur[0].id : "";
+   
+   if (lastId !== id) {
+       lastId = id;
+       // Set/remove active class
+       menuItems
+         .parent().removeClass("active")
+         .end().filter("[href='#"+id+"']").parent().addClass("active");
+   }                   
+});
+
+
